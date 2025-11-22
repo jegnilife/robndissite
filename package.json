@@ -35,7 +35,7 @@
   "proxy": "https://www.jegnilife.com.au",
   "scripts": {
     "server": "node src/server/server.js",
-    "client": "react-scripts start",
+    "start": "react-scripts start",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "build": "react-scripts build"
   },
