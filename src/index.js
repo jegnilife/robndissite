@@ -10,6 +10,7 @@ import CommmunitySupport from './client/components/communitySupport';
 import CommmunityNursing from './client/components/communityNursing';
 import GroupBasedActivities from './client/components/groupBasedActivities';
 import Contact from './client/components/contact';
+import Donation from './client/components/donation';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -31,6 +32,8 @@ root.render(
         <Route path="/aboutus" element={<AboutUs />}>
         </Route>
         <Route path="/contact" element={<Contact />}>
+        </Route>
+        <Route path="/donation" element={<Donation />}>
         </Route>
       </Routes>
     </BrowserRouter>

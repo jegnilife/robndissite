@@ -89,7 +89,10 @@ const NavbarItems = () => {
                             )}
                         </li>
                         <li>
-                            <button onClick={() => navigate('/contact')} className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Contact</button>
+                            <button onClick={() => navigate('/contact')} className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500">Contact</button>
+                        </li>
+                        <li>
+                            <button onClick={() => navigate('/donation')} className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500">Donations</button>
                         </li>
                     </ul>
                 </div>
@@ -184,6 +187,11 @@ const NavbarItems = () => {
             <div className="block px-2 py-2 text-gray-800">
               <Link to="/contact" className="text-white mt-2 md:mt-4 hover:text-gray-300">
                 Contact
+              </Link>
+            </div>
+            <div className="block px-2 py-2 text-gray-800">
+              <Link to="/donation" className="text-white mt-2 md:mt-4 hover:text-gray-300">
+                Donation
               </Link>
             </div>
           </div>
