@@ -10,6 +10,10 @@ import CommmunitySupport from './client/components/communitySupport';
 import CommmunityNursing from './client/components/communityNursing';
 import GroupBasedActivities from './client/components/groupBasedActivities';
 import Contact from './client/components/contact';
+import AgedCare from './client/components/agedCare';
+import OurStory from './client/components/ourStory';
+import Categories from './client/components/categories';
+import CategoryDetail from './client/components/categoryDetail';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -17,6 +21,12 @@ root.render(
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />}>
+        </Route>
+        <Route path="/our-story" element={<OurStory />}>
+        </Route>
+        <Route path="/categories" element={<Categories />}>
+        </Route>
+        <Route path="/categories/:itemId" element={<CategoryDetail />}>
         </Route>
         <Route path="/serviceOne" element={<ServiceOne />}>
         </Route>
@@ -31,6 +41,8 @@ root.render(
         <Route path="/aboutus" element={<AboutUs />}>
         </Route>
         <Route path="/contact" element={<Contact />}>
+        </Route>
+        <Route path="/aged-care" element={<AgedCare />}>
         </Route>
       </Routes>
     </BrowserRouter>

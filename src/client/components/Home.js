@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import Navbar from './navbarItems';
 import Services from './services';
 import MakesEasier from './makesEasier';
@@ -27,7 +27,7 @@ const Home = () => {
             />
           </div>
           <h1 className="text-2xl ml-2 text-[#372540] font-bold whitespace-pre-line mb-6 items-start">
-            Embrace Your Journey, Empower Your Life: <span className="text-[#D6AE38]">Together With JEGNI LIFE</span>
+            Embrace Your Journey, Empower Your Life: <span className="text-[#D6AE38]">Together With JEGNI LIFE CARE & SUPPORT</span>
           </h1>
           <ul>
             <li>
@@ -36,7 +36,7 @@ const Home = () => {
                   <path stroke="none" d="M0 0h24v24H0z" />
                   <path d="M5 12l5 5l10 -10" />
                 </svg>
-                <span className="ml-2 text-[#372540]">High Quality Service</span>
+                <span className="ml-2 text-[#372540]">Care with Compassion</span>
               </div>
             </li>
             <li>
@@ -45,7 +45,7 @@ const Home = () => {
                   <path stroke="none" d="M0 0h24v24H0z" />
                   <path d="M5 12l5 5l10 -10" />
                 </svg>
-                <span className="ml-2 text-[#372540]">Experienced Staff</span>
+                <span className="ml-2 text-[#372540]">Support with Respect</span>
               </div>
             </li>
             <li>
@@ -54,7 +54,7 @@ const Home = () => {
                   <path stroke="none" d="M0 0h24v24H0z" />
                   <path d="M5 12l5 5l10 -10" />
                 </svg>
-                <span className="ml-2 text-[#372540]">Client Centric Approach</span>
+                <span className="ml-2 text-[#372540]">Choice &amp; Control at Every Step</span>
               </div>
             </li>
             <li>
