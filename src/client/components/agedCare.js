@@ -84,13 +84,11 @@ const AgedCare = () => (
             Whether you need personal care, assistance with daily living, domestic support, transport, community participation, or clinical nursing care, we are here to support you in living safely, independently, and on your own terms.
           </p>
         </div>
-        <div className="mt-14 grid gap-8 md:grid-cols-[0.8fr_1.2fr]">
-          <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#173F67]">Our commitment</p>
-            <h2 className="mt-3 text-3xl font-bold text-[#173F67]">JEGNI LIFE&apos;s Commitment to Healthy Ageing</h2>
-            <p className="mt-5 text-xl font-semibold text-[#173F67]">We support people to:</p>
-          </div>
-          <ul className="grid gap-3 sm:grid-cols-2">
+        <div className="mt-14">
+          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#173F67]">Our commitment</p>
+          <h2 className="mt-3 text-3xl font-bold text-[#173F67]">JEGNI LIFE&apos;s Commitment to Healthy Ageing</h2>
+          <p className="mt-5 text-xl font-semibold text-[#173F67]">We support people to:</p>
+          <ul className="mt-6 grid gap-3 sm:grid-cols-2">
             {healthyAgeingCommitments.map((commitment) => (
               <li key={commitment} className="flex items-start gap-3 border-l-2 border-[#173F67] px-4 py-2 text-[#173F67]">
                 <span className="font-bold text-[#173F67]">✓</span>{commitment}
