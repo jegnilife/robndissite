@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import Navbar from './navbarItems';
 import Footer from './footer';
 import TopSnippet from './topSnippet';
@@ -22,9 +21,10 @@ export const categories = [
     title: 'ASSISTIVE TECHNOLOGY & HOME MODIFICATIONS',
     subtitle: 'Making Homes Safer and More Accessible',
     description: 'We help older Australians stay safe and independent through equipment and home modification solutions.',
+    detail: 'Our team can assist with arranging assessments, coordinating equipment needs, and recommending suitable solutions to help improve independence, comfort, and safety.',
     items: [
       ['Home Modifications', 'home-modifications'],
-      ['Assistive Technology - Mobility and Assistive Equipment', 'assistive-technology'],
+      ['Assistive Technology- Mobility and Assistive Equipment', 'assistive-technology'],
     ],
   },
   {
@@ -54,6 +54,13 @@ export const categories = [
     title: 'NURSING & CLINICAL CARE',
     subtitle: 'Professional Clinical Care Delivered at Home',
     description: 'Our Registered Nurses deliver high-quality nursing services to support health, recovery, and wellbeing.',
+    steps: [
+      ['Step 1 – Consultation', 'Understanding your needs and goals.'],
+      ['Step 2 – Assessment', 'Identifying the most suitable supports.'],
+      ['Step 3 – Care Planning', 'Developing a personalised service plan.'],
+      ['Step 4 – Service Delivery', 'Providing quality care and support.'],
+      ['Step 5 – Ongoing Reviews', 'Regular monitoring and plan updates.'],
+    ],
     items: [
       ['Nursing Services', 'nursing-services'],
       ['Medication Management', 'medication-management'],
@@ -63,6 +70,14 @@ export const categories = [
   },
 ];
 
+const myAgedCareResources = [
+  ['What is Support at Home?', 'https://www.myagedcare.gov.au/understanding-support-home'],
+  ['My Aged Care', 'https://www.myagedcare.gov.au/'],
+  ['Eligibility checker', 'https://www.myagedcare.gov.au/am-i-eligible'],
+  ['Fee estimator', 'https://www.myagedcare.gov.au/how-much-will-it-cost'],
+  ['Apply for an assessment', 'https://www.myagedcare.gov.au/apply-online'],
+];
+
 const Categories = () => (
   <div className="flex-wrap relative">
     <TopSnippet />
@@ -70,7 +85,7 @@ const Categories = () => (
     <main>
       <section className="bg-[#E8F2FF] px-8 py-16 md:px-16 md:py-20">
         <div className="mx-auto max-w-6xl">
-          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#173F67]">Categories</p>
+          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#173F67]">Resources</p>
           <h1 className="mt-3 text-4xl font-bold text-[#173F67] md:text-5xl">Support for everyday living.</h1>
           <p className="mt-5 max-w-3xl text-lg leading-8 text-[#173F67]">
             Explore the home, community, personal care, and clinical support services available through JEGNI LIFE.
@@ -78,22 +93,16 @@ const Categories = () => (
         </div>
       </section>
       <section className="mx-auto max-w-6xl px-6 py-16 md:px-16 md:py-20">
-        <div className="grid gap-6 md:grid-cols-2">
-          {categories.map((category) => (
-            <article id={category.id} key={category.id} className="border-t-4 border-[#173F67] bg-[#f2faeb] p-7 scroll-mt-24">
-              <h2 className="text-2xl font-bold text-[#173F67]">{category.title}</h2>
-              <h3 className="mt-4 text-lg font-semibold text-[#173F67]">{category.subtitle}</h3>
-              <p className="mt-3 leading-7 text-[#173F67]">{category.description}</p>
-              <ul className="mt-5 space-y-2">
-                {category.items.map(([item, slug]) => (
-                  <li key={slug} className="flex items-start gap-3 text-[#173F67]">
-                    <span className="font-bold">✓</span>
-                    <Link to={`/categories/${slug}`} className="font-semibold underline-offset-4 hover:underline">{item}</Link>
-                  </li>
-                ))}
-              </ul>
-            </article>
-          ))}
+        <div className="mb-16 border-l-4 border-[#D6AE38] bg-[#f2faeb] p-7">
+          <h2 className="text-3xl font-bold text-[#173F67]">My Aged Care resources</h2>
+          <ul className="mt-5 grid gap-3 text-[#173F67] sm:grid-cols-2">
+            {myAgedCareResources.map(([label, href]) => (
+              <li key={label} className="flex items-start gap-3">
+                <span className="font-bold">•</span>
+                <a href={href} target="_blank" rel="noreferrer" className="font-semibold underline-offset-4 hover:underline">{label}</a>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
     </main>

@@ -54,6 +54,14 @@ const Contact = () => {
                     <QRCode value={websiteUrl} />
                 </div>
             </div> */}
+            <section className="bg-[#f2faeb] px-8 py-12 md:px-16">
+                <div className="mx-auto max-w-5xl border-l-4 border-[#D6AE38] bg-white p-7">
+                    <h2 className="text-3xl font-bold text-[#173F67]">Feedback &amp; Complaints</h2>
+                    <p className="mt-4 max-w-3xl leading-8 text-slate-700">
+                        We value client feedback and encourage open communication. We are committed to addressing concerns fairly, respectfully, and promptly.
+                    </p>
+                </div>
+            </section>
             <Map />
             {isDialogOpen && <DialogForm isOpen={isDialogOpen} onClose={closeDialog} />}
             <Footer />

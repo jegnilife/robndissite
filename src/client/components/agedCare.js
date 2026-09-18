@@ -40,8 +40,6 @@ const careCategories = [
   },
 ];
 
-const careSteps = ['Consultation', 'Assessment', 'Care Planning', 'Service Delivery', 'Ongoing Reviews'];
-
 const AgedCare = () => (
   <div className="flex-wrap relative">
     <TopSnippet />
@@ -77,17 +75,20 @@ const AgedCare = () => (
           <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#173F67]">Aged care at JEGNI LIFE</p>
           <h2 className="mt-3 text-3xl font-bold text-[#173F67] md:text-4xl">Living with dignity, respect, choice, and independence.</h2>
           <p className="mt-6 leading-8 text-[#173F67]">
-            At JEGNI LIFE, we believe every Australian deserves to live with dignity, respect, choice, andndependence in the comfort of their own home. 
-            We provide personalised aged care and community support tailored to each person&apos;s needs, goals, preferences, and lifestyle. Our compassionate team works alongside you, your family, and the people important to you to promote safety, wellbeing, connection, and quality of life.
+            At JEGNI LIFE, we believe every Australian deserves to live with dignity, respect, choice, and independence in the comfort of their own home.
           </p>
           <p className="mt-4 leading-8 text-[#173F67]">
-            Whether you need personal care, assistance with daily living, domestic support, transport, community participation, or clinical nursing care, we are here to support you at home and on your own terms.
+            We provide personalised aged care and community support tailored to each person&apos;s individual needs, goals, preferences, and lifestyle. Our compassionate team works alongside you, your family, and those who are important to you to promote safety, wellbeing, connection, and quality of life.
+          </p>
+          <p className="mt-4 leading-8 text-[#173F67]">
+            Whether you need personal care, assistance with daily living, domestic support, transport, community participation, or clinical nursing care, we are here to support you in living safely, independently, and on your own terms.
           </p>
         </div>
         <div className="mt-14 grid gap-8 md:grid-cols-[0.8fr_1.2fr]">
           <div>
             <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#173F67]">Our commitment</p>
-            <h2 className="mt-3 text-3xl font-bold text-[#173F67]">Supporting healthy ageing.</h2>
+            <h2 className="mt-3 text-3xl font-bold text-[#173F67]">JEGNI LIFE&apos;s Commitment to Healthy Ageing</h2>
+            <p className="mt-5 text-xl font-semibold text-[#173F67]">We support people to:</p>
           </div>
           <ul className="grid gap-3 sm:grid-cols-2">
             {healthyAgeingCommitments.map((commitment) => (
@@ -97,34 +98,22 @@ const AgedCare = () => (
             ))}
           </ul>
         </div>
+        <div className="mt-16 bg-[#372540] px-7 py-10 text-white md:px-12">
+          <h2 className="text-3xl font-bold">We&apos;re Here to Support You</h2>
+          <p className="mt-3 max-w-3xl leading-7 text-white">
+            Taking the first step towards support can feel overwhelming, but you don&apos;t have to do it alone. At JEGNI LIFE, we take the time to listen, understand your individual circumstances, and work alongside you to find support that is right for you and your loved ones. Contact us today for a friendly, no-obligation conversation about how we can support you. Because every person deserves to feel heard, respected, and supported throughout their journey.
+          </p>
+        </div>
         <div className="mt-16">
-          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#173F67]">Our services</p>
-          <h2 className="mt-3 text-3xl font-bold text-[#173F67]">Support shaped around everyday life.</h2>
+          <h2 className="text-3xl font-bold text-[#173F67]">Categories</h2>
           <div className="mt-8 grid gap-5 md:grid-cols-2">
-            {careCategories.map((category) => (
-              <article key={category.title} className="border-t-4 border-[#D6AE38] bg-[#f2faeb] p-6">
+            {careCategories.map((category, index) => (
+              <article key={category.title} className={`border-t-4 border-[#D6AE38] bg-[#f2faeb] p-6 ${index === careCategories.length - 1 ? 'md:col-span-2 md:w-1/2 md:justify-self-center' : ''}`}>
                 <h3 className="text-xl font-bold text-[#173F67]">{category.title}</h3>
                 <p className="mt-3 leading-7 text-[#173F67]">{category.description}</p>
               </article>
             ))}
           </div>
-        </div>
-        <div className="mt-16">
-          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#173F67]">How we work</p>
-          <div className="mt-6 grid gap-3 md:grid-cols-5">
-            {careSteps.map((step, index) => (
-              <div key={step} className="bg-[#372540] p-5 text-white">
-                <span className="text-sm font-bold text-[#173F67]">0{index + 1}</span>
-                <h3 className="mt-5 font-bold">{step}</h3>
-              </div>
-            ))}
-          </div>
-        </div>
-        <div className="mt-16 bg-[#372540] px-7 py-10 text-white md:px-12">
-          <h2 className="text-3xl font-bold">We&apos;re here to support you.</h2>
-          <p className="mt-3 max-w-3xl leading-7 text-white">
-            Taking the first step towards support can feel overwhelming, but you don&apos;t have to do it alone. At JEGNI LIFE, we take the time to listen, understand your individual circumstances, and work alongside you to find support that is right for you and your loved ones. Contact us today for a friendly, no-obligation conversation about how we can support you. Because every person deserves to feel heard, respected, and supported throughout their journey.
-          </p>
         </div>
       </section>
     </main>

@@ -104,6 +104,42 @@ const Home = () => {
       </div>
       <MakesEasier />
       <Expertise />
+      <section className="bg-[#f2faeb] px-6 py-16 md:px-16 md:py-20">
+        <div className="mx-auto max-w-6xl">
+          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#173F67]">Our commitment</p>
+          <h2 className="mt-3 max-w-3xl text-3xl font-bold text-[#173F67] md:text-4xl">Our Commitment to Excellence</h2>
+          <p className="mt-5 max-w-3xl leading-8 text-[#173F67]">
+            At JEGNI LIFE, quality and safety are at the centre of everything we do.
+          </p>
+          <div className="mt-10 grid gap-8 md:grid-cols-2">
+            <div className="bg-white p-7">
+              <h3 className="text-2xl font-bold text-[#173F67]">Our Commitment</h3>
+              <ul className="mt-5 grid gap-3 text-[#173F67]">
+                <li>✔ Respect and dignity</li>
+                <li>✔ Safe, effective care</li>
+                <li>✔ Continuous improvement</li>
+                <li>✔ Qualified and skilled staff</li>
+                <li>✔ Strong governance</li>
+                <li>✔ Privacy and confidentiality</li>
+                <li>✔ Client rights and choice</li>
+                <li>✔ Evidence-based practice</li>
+              </ul>
+            </div>
+            <div className="bg-[#372540] p-7 text-white">
+              <h3 className="text-2xl font-bold">Safety First</h3>
+              <p className="mt-4 leading-7">Our team receives ongoing training in:</p>
+              <ul className="mt-4 grid gap-3 leading-7">
+                <li>• Infection prevention and control</li>
+                <li>• Manual handling</li>
+                <li>• Elder abuse awareness</li>
+                <li>• Medication safety</li>
+                <li>• Incident management</li>
+                <li>• Emergency response procedures</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
       {/* <Reviews /> */}
       <Guide />
       <Footer />

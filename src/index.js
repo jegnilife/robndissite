@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import Home from './client/components/Home';
@@ -24,9 +24,13 @@ root.render(
         </Route>
         <Route path="/our-story" element={<OurStory />}>
         </Route>
-        <Route path="/categories" element={<Categories />}>
+        <Route path="/resources" element={<Categories />}>
         </Route>
         <Route path="/categories/:itemId" element={<CategoryDetail />}>
+        </Route>
+        <Route path="/resources/:itemId" element={<CategoryDetail />}>
+        </Route>
+        <Route path="/categories" element={<Navigate to="/resources" replace />}>
         </Route>
         <Route path="/serviceOne" element={<ServiceOne />}>
         </Route>
