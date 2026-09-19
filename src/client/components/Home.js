@@ -16,7 +16,7 @@ const Home = () => {
       <TopSnippet /> 
       <Navbar />
       {/* bg-[#cce5ed] */}
-      <div className="h-96 md:h-[480px] mx-auto bg-[#E8F2FF] p-8 mt-2 mb-10 md:mb-2 flex flex-col md:flex-row">
+      <div className="h-96 md:h-[480px] mx-auto bg-[#E8F2FF] p-8 mt-0 mb-10 md:mb-2 flex flex-col md:flex-row">
       
         <div className="md:w-2/5">
           <div className="flex flex-col md:flex-row items-start md:items-center gap-4 mt-4">
