@@ -84,25 +84,34 @@ const Categories = () => (
     <Navbar />
     <main>
       <section className="bg-[#E8F2FF] px-8 py-16 md:px-16 md:py-20">
-        <div className="mx-auto max-w-6xl">
-          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#173F67]">Resources</p>
-          <h1 className="mt-3 text-4xl font-bold text-[#173F67] md:text-5xl">Support for everyday living.</h1>
-          <p className="mt-5 max-w-3xl text-lg leading-8 text-[#173F67]">
-            Explore the home, community, personal care, and clinical support services available through JEGNI LIFE.
-          </p>
+        <div className="mx-auto grid max-w-6xl gap-10 md:grid-cols-[1.1fr_0.9fr] md:items-center">
+          <div>
+            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#173F67]">Resources</p>
+            <h1 className="mt-3 whitespace-nowrap text-2xl font-bold leading-tight text-[#173F67] md:text-4xl">Support for everyday living</h1>
+            <p className="mt-5 max-w-3xl text-lg leading-8 text-[#173F67]">
+              Explore helpful My Aged Care information and resources to understand available support and take the next step with confidence.
+            </p>
+          </div>
+          <img src="/images/communitysupport.jpg" alt="People connecting through community support" className="aspect-[4/3] w-full rounded-lg object-cover" />
         </div>
       </section>
-      <section className="mx-auto max-w-6xl px-6 py-16 md:px-16 md:py-20">
-        <div className="mb-16 border-l-4 border-[#D6AE38] bg-[#f2faeb] p-7">
-          <h2 className="text-3xl font-bold text-[#173F67]">My Aged Care resources</h2>
-          <ul className="mt-5 grid gap-3 text-[#173F67] sm:grid-cols-2">
+      <section className="bg-white px-6 py-16 md:px-16 md:py-20">
+        <div className="mx-auto max-w-6xl">
+          <div className="border-l-4 border-[#D6AE38] bg-[#F5FAFF] p-7 md:p-9">
+            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#173F67]">Helpful information</p>
+            <h2 className="mt-3 text-3xl font-bold text-[#173F67]">My Aged Care resources</h2>
+            <p className="mt-4 max-w-3xl leading-7 text-[#173F67]">Use these resources to learn about Support at Home, check eligibility, estimate fees, or apply for an assessment.</p>
+            <ul className="mt-7 grid gap-3 text-[#173F67] sm:grid-cols-2">
             {myAgedCareResources.map(([label, href]) => (
-              <li key={label} className="flex items-start gap-3">
-                <span className="font-bold">•</span>
-                <a href={href} target="_blank" rel="noreferrer" className="font-semibold underline-offset-4 hover:underline">{label}</a>
+              <li key={label}>
+                <a href={href} target="_blank" rel="noreferrer" className="flex items-center justify-between rounded-lg bg-white px-4 py-3 font-semibold shadow-sm transition hover:bg-[#E8F2FF]">
+                  <span>{label}</span>
+                  <span aria-hidden="true">&rarr;</span>
+                </a>
               </li>
             ))}
-          </ul>
+            </ul>
+          </div>
         </div>
       </section>
     </main>

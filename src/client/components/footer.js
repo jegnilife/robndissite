@@ -51,18 +51,18 @@ const Footer = () => {
                     {/* <li className="text-sm font-bold mb-2">NDIS Provider Registration ID: 00-ABCD12345</li>
                     <li className="text-sm font-bold mb-2">ABN 00 123 000 111</li>  */}
                     {/* <span>
-                        <img src="images/modernmap.png" className="h-[130px] md:h-[150px] ml-[-30px] md:ml-[-30px]" alt="AUS"/>
-                        <img src="images/modernmap.png" className="h-[130px] md:h-[150px] ml-[-30px] md:ml-[-30px]" alt="AUS"/>
+                        <img src="/images/modernmap.png" className="h-[130px] md:h-[150px] ml-[-30px] md:ml-[-30px]" alt="AUS"/>
+                        <img src="/images/modernmap.png" className="h-[130px] md:h-[150px] ml-[-30px] md:ml-[-30px]" alt="AUS"/>
                     </span> */}
 
                     <div className="flex flex-col md:flex-row items-start md:items-center gap-4 mt-4">
                         <img
-                            src="images/modernmap.png"
+                            src="/images/modernmap.png"
                             className="h-[130px] md:h-[150px] ml-[-30px] md:ml-[-30px]"
                             alt="AUS"
                         />
                         <img
-                            src="images/registered-ndis-provider-transparent-300x139.png"
+                            src="/images/registered-ndis-provider-transparent-300x139.png"
                             className="h-[100px] md:h-[80px] pl-[4px] mb-[20px] md:pl-0 md:mb-0 rounded-[10px]"
                             alt="AUS"
                         />
@@ -90,41 +90,41 @@ const Footer = () => {
                 <div className="portrait:hidden flex flex-wrap mt-4">
                     <div className="md:w-1/3 py-4 ml-4 md:ml-[5px]">
                         <a className="inline-block w-10 h-10 rounded-full bg-white p-2" href="https://www.facebook.com/profile.php?id=100094878867837">
-                            <img src="images/fbicon.png"></img>
+                            <img src="/images/fbicon.png"></img>
                         </a>
                     </div>
                     <div className="md:w-1/3 py-4 ml-4 md:ml-[-70px] ml-[7px]">
                         <a className="inline-block w-10 h-10 rounded-full bg-white p-2" href="https://www.linkedin.com/company/jegnilife/?viewAsMember=true">
-                            <img src="images/linkedinicon.png"></img>
+                            <img src="/images/linkedinicon.png"></img>
                         </a>
                     </div>
                     <div className="md:w-1/3 p-4 md:ml-[-84px] ml-[-5px]">
                         <a className="inline-block w-10 h-10 rounded-full bg-white p-2" href="https://www.instagram.com/jegnilife/">
-                            <img src="images/instagram.png"></img>
+                            <img src="/images/instagram.png"></img>
                         </a>
                     </div>
                  </div>
                  <div className="landscape:hidden flex flex-wrap mt-4">
                     <div className="md:w-1/2 py-2 ml-4 md:ml-[5px]">
                         <a className="inline-block w-10 h-10 rounded-full bg-white p-2" href="https://www.facebook.com/profile.php?id=100094878867837">
-                            <img src="images/fbicon.png"></img>
+                            <img src="/images/fbicon.png"></img>
                         </a>
                     </div>
                     <div className="md:w-1/2 py-2 ml-4 md:ml-[-65px] ml-[7px]">
                         <a className="inline-block w-10 h-10 rounded-full bg-white p-2" href="https://www.linkedin.com/company/jegnilife/?viewAsMember=true">
-                            <img src="images/linkedinicon.png"></img>
+                            <img src="/images/linkedinicon.png"></img>
                         </a>
                     </div>
                     <div className="md:w-1/2 p-2 md:ml-[-74px] ml-[-3px]">
                         <a className="inline-block w-10 h-10 rounded-full bg-white p-2" href="https://www.instagram.com/jegnilife/">
-                            <img src="images/instagram.png"></img>
+                            <img src="/images/instagram.png"></img>
                         </a>
                     </div>
                  </div>
             </div>
             
             <button className={`fixed bottom-5 right-5 p-3 rounded-full text-white ${isVisible ? 'visible' : 'invisible' }`} onClick={scrollToTop}>
-                <img src="images/scroll.png" className="h-10 md:h-10 rounded-full" alt="Scroll to Top" />
+                <img src="/images/scroll.png" className="h-10 md:h-10 rounded-full" alt="Scroll to Top" />
             </button>
             <div className="flex">
                 <p className="text-xs text-[#ffffff] ml-8 mb-4 md:mb-2 md:ml-8">© 2023 JEGNI LIFE Pty Ltd</p>

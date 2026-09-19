@@ -30,6 +30,8 @@ root.render(
         </Route>
         <Route path="/resources/:itemId" element={<CategoryDetail />}>
         </Route>
+        <Route path="/aged-care/:itemId" element={<CategoryDetail />}>
+        </Route>
         <Route path="/categories" element={<Navigate to="/resources" replace />}>
         </Route>
         <Route path="/serviceOne" element={<ServiceOne />}>

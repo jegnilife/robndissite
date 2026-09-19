@@ -24,11 +24,23 @@ const itemContent = {
   'chronic-disease-management': 'Ongoing support for managing chronic health conditions and maintaining your wellbeing at home.',
 };
 
+const categoryImages = {
+  'home-community': ['/images/supportIndependentLiving.jpg', 'Support worker assisting an older person at home'],
+  'assistive-technology': ['/images/supportIndependentLiving.jpg', 'Support worker helping an older person at home'],
+  'advisory-support': ['/images/communitysupport.jpg', 'People connecting through community support'],
+  'personal-care': ['/images/commNursing4.jpg', 'Nurse supporting an older person'],
+  'nursing-clinical': ['/images/commNursing4.jpg', 'Nurse providing clinical care'],
+};
+
+const getCategoryPath = (categoryId) => `/aged-care/${categoryId}`;
+
 const CategoryDetail = () => {
   const { itemId } = useParams();
   const category = categories.find((entry) => entry.id === itemId);
   const parentCategory = categories.find((category) => category.items.some(([, slug]) => slug === itemId));
   const item = parentCategory?.items.find(([, slug]) => slug === itemId);
+  const pageCategory = category || parentCategory;
+  const [categoryImage, categoryImageAlt] = categoryImages[pageCategory?.id] || [];
 
   if (category) {
     return (
@@ -36,14 +48,18 @@ const CategoryDetail = () => {
         <TopSnippet />
         <Navbar />
         <main>
-          <section className="bg-[#E8F2FF] px-8 py-20 md:px-16">
-            <div className="mx-auto max-w-5xl">
-              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#173F67]">Aged Care</p>
-              <h1 className="mt-4 text-4xl font-bold text-[#173F67] md:text-6xl">{category.title}</h1>
-              <p className="mt-6 max-w-3xl text-lg leading-8 text-[#173F67]">{category.subtitle}</p>
+          <section className="bg-[#E8F2FF] px-6 py-12 md:px-16 md:py-16">
+            <div className="mx-auto grid max-w-6xl gap-10 md:grid-cols-[1.1fr_0.9fr] md:items-center">
+              <div className="border-l-4 border-[#D6AE38] pl-6 md:pl-8">
+                <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#173F67]">Aged Care</p>
+                <h1 className="mt-4 max-w-2xl text-3xl font-bold leading-tight text-[#173F67] md:text-4xl">{category.title}</h1>
+                <p className="mt-6 max-w-3xl text-lg leading-8 text-[#173F67]">{category.subtitle}</p>
+              </div>
+              <img src={categoryImage} alt={categoryImageAlt} className="aspect-[4/3] w-full rounded-lg object-cover" />
             </div>
           </section>
-          <section className="mx-auto max-w-5xl px-6 py-16 md:px-16">
+          <section className="bg-white px-6 py-16 md:px-16">
+            <div className="mx-auto max-w-6xl">
             <p className="max-w-3xl text-lg leading-8 text-[#173F67]">{category.description}</p>
             {category.detail && (
               <p className="mt-5 max-w-3xl leading-8 text-[#173F67]">{category.detail}</p>
@@ -52,7 +68,7 @@ const CategoryDetail = () => {
             <ul className="mt-5 grid gap-3 sm:grid-cols-2">
               {category.items.map(([label, slug]) => (
                 <li key={slug} className="border-l-2 border-[#173F67] px-4 py-2">
-                  <Link to={`/resources/${slug}`} className="font-semibold text-[#173F67] underline-offset-4 hover:underline">{label}</Link>
+                  <Link to={`${getCategoryPath(category.id)}/${slug}`} className="font-semibold text-[#173F67] underline-offset-4 hover:underline">{label}</Link>
                 </li>
               ))}
             </ul>
@@ -69,7 +85,8 @@ const CategoryDetail = () => {
                 </div>
               </div>
             )}
-            <Link to="/resources" className="mt-8 inline-block font-semibold text-[#173F67] underline underline-offset-4">Back to Resources</Link>
+            <Link to="/aged-care" className="mt-8 inline-block font-semibold text-[#173F67] underline underline-offset-4">Back to Aged Care</Link>
+            </div>
           </section>
         </main>
         <Footer />
@@ -86,17 +103,22 @@ const CategoryDetail = () => {
       <TopSnippet />
       <Navbar />
       <main>
-        <section className="bg-[#E8F2FF] px-8 py-20 md:px-16">
-          <div className="mx-auto max-w-5xl">
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#173F67]">{parentCategory.title}</p>
-            <h1 className="mt-4 text-4xl font-bold text-[#173F67] md:text-6xl">{item[0]}</h1>
-            <p className="mt-6 max-w-3xl text-lg leading-8 text-[#173F67]">{itemContent[itemId]}</p>
+        <section className="bg-[#E8F2FF] px-6 py-12 md:px-16 md:py-16">
+          <div className="mx-auto grid max-w-6xl gap-10 md:grid-cols-[1.1fr_0.9fr] md:items-center">
+            <div className="border-l-4 border-[#D6AE38] pl-6 md:pl-8">
+              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#173F67]">{parentCategory.title}</p>
+              <h1 className="mt-4 max-w-2xl text-3xl font-bold leading-tight text-[#173F67] md:text-4xl">{item[0]}</h1>
+              <p className="mt-6 max-w-3xl text-lg leading-8 text-[#173F67]">{itemContent[itemId]}</p>
+            </div>
+            <img src={categoryImage} alt={categoryImageAlt} className="aspect-[4/3] w-full rounded-lg object-cover" />
           </div>
         </section>
-        <section className="mx-auto max-w-5xl px-6 py-16 md:px-16">
-          <h2 className="text-3xl font-bold text-[#173F67]">{parentCategory.subtitle}</h2>
-          <p className="mt-5 max-w-3xl leading-8 text-[#173F67]">{parentCategory.description}</p>
-          <Link to="/resources" className="mt-8 inline-block font-semibold text-[#173F67] underline underline-offset-4">Back to Resources</Link>
+        <section className="bg-white px-6 py-16 md:px-16">
+          <div className="mx-auto max-w-6xl">
+            <h2 className="text-3xl font-bold text-[#173F67]">{parentCategory.subtitle}</h2>
+            <p className="mt-5 max-w-3xl leading-8 text-[#173F67]">{parentCategory.description}</p>
+            <Link to="/aged-care" className="mt-8 inline-block font-semibold text-[#173F67] underline underline-offset-4">Back to Aged Care</Link>
+          </div>
         </section>
       </main>
       <Footer />

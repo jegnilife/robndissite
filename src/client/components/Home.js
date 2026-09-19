@@ -104,17 +104,18 @@ const Home = () => {
       </div>
       <MakesEasier />
       <Expertise />
-      <section className="bg-[#f2faeb] px-6 py-16 md:px-16 md:py-20">
+      <section className="bg-[#C9DDF2] px-6 py-16 md:px-16 md:py-20">
         <div className="mx-auto max-w-6xl">
-          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#173F67]">Our commitment</p>
-          <h2 className="mt-3 max-w-3xl text-3xl font-bold text-[#173F67] md:text-4xl">Our Commitment to Excellence</h2>
-          <p className="mt-5 max-w-3xl leading-8 text-[#173F67]">
+          <div className="max-w-3xl border-l-4 border-[#D6AE38] pl-5 md:pl-7">
+            <h2 className="mt-3 text-3xl font-bold text-[#173F67] md:text-4xl">Our Commitment to Excellence</h2>
+            <p className="mt-5 leading-8 text-[#173F67]">
             At JEGNI LIFE, quality and safety are at the centre of everything we do.
-          </p>
+            </p>
+          </div>
           <div className="mt-10 grid gap-8 md:grid-cols-2">
-            <div className="bg-white p-7">
+            <div className="rounded-lg border-t-4 border-[#173F67] bg-[#E8F2FF] p-7 text-[#173F67] shadow-sm">
               <h3 className="text-2xl font-bold text-[#173F67]">Our Commitment</h3>
-              <ul className="mt-5 grid gap-3 text-[#173F67]">
+              <ul className="mt-5 grid gap-3 leading-7 text-[#173F67]">
                 <li>✔ Respect and dignity</li>
                 <li>✔ Safe, effective care</li>
                 <li>✔ Continuous improvement</li>
@@ -125,7 +126,7 @@ const Home = () => {
                 <li>✔ Evidence-based practice</li>
               </ul>
             </div>
-            <div className="bg-[#372540] p-7 text-white">
+            <div className="rounded-lg border-t-4 border-[#173F67] bg-[#E8F2FF] p-7 text-[#173F67] shadow-sm">
               <h3 className="text-2xl font-bold">Safety First</h3>
               <p className="mt-4 leading-7">Our team receives ongoing training in:</p>
               <ul className="mt-4 grid gap-3 leading-7">

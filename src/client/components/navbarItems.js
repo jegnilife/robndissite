@@ -54,7 +54,7 @@ const NavbarItems = () => {
             <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-2">
                 <a onClick={() => navigate('/')} href="" className="flex items-center">
                     {/* <img src="https://flowbite.com/docs/images/logo.svg" className="h-20 mr-3" alt="Flowbite Logo" /> */}
-                    <img src="images/color1_logo_try2.png" className="h-14 mr-3" alt="JEGNI LIFE" />
+                    <img src="/images/color1_logo_try2.png" className="h-14 mr-3" alt="JEGNI LIFE" />
                     <div className="flex flex-col justify-center">
                         <span className="text-2xl font-montserrat text-3xl font-bold whitespace-nowrap dark:text-white text-[#D6AE38]">JEGNI LIFE</span>
                         <p className="text-xs pt-1 font-bold tracking-wide whitespace-nowrap">
@@ -123,7 +123,7 @@ const NavbarItems = () => {
                                           <ul className="border-t border-gray-100 pl-3 dark:border-gray-600">
                                             {agedCareCategories.map(([label, slug]) => (
                                               <li key={slug}>
-                                                <button onClick={() => navigate(`/resources/${slug}`)} className="block w-full px-4 py-2 text-left hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">{label}</button>
+                                                <button onClick={() => navigate(slug === 'assistive-technology' ? '/assistive-technology' : `/aged-care/${slug}`)} className="block w-full px-4 py-2 text-left hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">{label}</button>
                                               </li>
                                             ))}
                                           </ul>
@@ -133,24 +133,7 @@ const NavbarItems = () => {
                                 </div>
                             )}
                         </li>
-                        <li>
-                            <div className="flex items-center py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:p-0 dark:text-white">
-                              <Link to="/resources" className="md:hover:text-blue-700 md:dark:hover:text-blue-500">Resources</Link>
-                              <button type="button" onClick={openResourcesPopup} className="ml-2" aria-label="Expand Resources menu">
-                                <svg className={`w-2.5 h-2.5 transition-transform ${resourcesToggle ? 'rotate-180' : ''}`} aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-                                  <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 1 4 4 4-4" />
-                                </svg>
-                              </button>
-                            </div>
-                            {resourcesToggle && (
-                              <div className="z-50 font-normal bg-white divide-y divide-gray-100 rounded-lg shadow absolute mt-1 w-36 dark:bg-gray-700 dark:divide-gray-600">
-                                <ul className="py-2 text-sm text-gray-700 dark:text-gray-400">
-                                        <li><Link to="/serviceOne" className="block px-4 py-2 font-semibold text-[#51247A] hover:bg-[#f4eef8] dark:hover:bg-gray-600 dark:hover:text-white">NDIS</Link></li>
-                                        <li><Link to="/aged-care" className="block px-4 py-2 font-semibold text-[#173F67] hover:bg-[#eef1f5] dark:hover:bg-gray-600 dark:hover:text-white">Aged Care</Link></li>
-                                </ul>
-                              </div>
-                            )}
-                        </li>
+                        
                         <li>
                             <button id="dropdownNavbarLink" data-dropdown-toggle="dropdownNavbar" onClick={openAboutUsPopup} className="flex items-center justify-between w-full py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:w-auto dark:text-white md:dark:hover:text-blue-500 dark:focus:text-white dark:border-gray-700 dark:hover:bg-gray-700 md:dark:hover:bg-transparent">About<svg className="w-2.5 h-2.5 ml-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
                                 <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 1 4 4 4-4" />
@@ -170,6 +153,24 @@ const NavbarItems = () => {
                                         <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-400 dark:hover:text-white">Sign out</a>
                                     </div> */}
                                 </div>
+                            )}
+                        </li>
+                        <li>
+                            <div className="flex items-center py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:p-0 dark:text-white">
+                              <Link to="/resources" className="md:hover:text-blue-700 md:dark:hover:text-blue-500">Resources</Link>
+                              <button type="button" onClick={openResourcesPopup} className="ml-2" aria-label="Expand Resources menu">
+                                <svg className={`w-2.5 h-2.5 transition-transform ${resourcesToggle ? 'rotate-180' : ''}`} aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                                  <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 1 4 4 4-4" />
+                                </svg>
+                              </button>
+                            </div>
+                            {resourcesToggle && (
+                              <div className="z-50 font-normal bg-white divide-y divide-gray-100 rounded-lg shadow absolute mt-1 w-36 dark:bg-gray-700 dark:divide-gray-600">
+                                <ul className="py-2 text-sm text-gray-700 dark:text-gray-400">
+                                        <li><Link to="/serviceOne" className="block px-4 py-2 font-semibold text-[#51247A] hover:bg-[#f4eef8] dark:hover:bg-gray-600 dark:hover:text-white">NDIS</Link></li>
+                                        <li><Link to="/aged-care" className="block px-4 py-2 font-semibold text-[#173F67] hover:bg-[#eef1f5] dark:hover:bg-gray-600 dark:hover:text-white">Aged Care</Link></li>
+                                </ul>
+                              </div>
                             )}
                         </li>
                         <li>
@@ -257,7 +258,7 @@ const NavbarItems = () => {
                   {agedCareToggle && (
                     <div className="border-t border-gray-200 pl-2">
                       {agedCareCategories.map(([label, slug]) => (
-                        <Link key={slug} to={`/resources/${slug}`} className="block px-4 py-2 text-gray-800 hover:bg-gray-200">{label}</Link>
+                        <Link key={slug} to={slug === 'assistive-technology' ? '/assistive-technology' : `/aged-care/${slug}`} className="block px-4 py-2 text-gray-800 hover:bg-gray-200">{label}</Link>
                       ))}
                     </div>
                   )}
