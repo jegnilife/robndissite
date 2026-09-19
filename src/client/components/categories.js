@@ -92,7 +92,7 @@ const Categories = () => (
               Explore helpful My Aged Care information and resources to understand available support and take the next step with confidence.
             </p>
           </div>
-          <img src="/images/communitysupport.jpg" alt="People connecting through community support" className="aspect-[4/3] w-full rounded-lg object-cover" />
+          <img src="/images/supportIndependentLiving.jpg" alt="Support worker assisting an older person at home" className="aspect-[4/3] w-full rounded-lg object-cover" />
         </div>
       </section>
       <section className="bg-white px-6 py-16 md:px-16 md:py-20">

@@ -14,6 +14,7 @@ import AgedCare from './client/components/agedCare';
 import OurStory from './client/components/ourStory';
 import Categories from './client/components/categories';
 import CategoryDetail from './client/components/categoryDetail';
+import NdisResource from './client/components/ndisResource';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -25,6 +26,10 @@ root.render(
         <Route path="/our-story" element={<OurStory />}>
         </Route>
         <Route path="/resources" element={<Categories />}>
+        </Route>
+        <Route path="/resources/ndis" element={<NdisResource />}>
+        </Route>
+        <Route path="/resources/aged-care" element={<Categories />}>
         </Route>
         <Route path="/categories/:itemId" element={<CategoryDetail />}>
         </Route>

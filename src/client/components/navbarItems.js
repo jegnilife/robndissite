@@ -5,7 +5,6 @@ import { useNavigate, Link } from "react-router-dom";
 const NavbarItems = () => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [aboutusToggle, setAboutUsToggle] = useState(false);
-    const [serviceToggle, setServiceToggle] = useState(false);
     const [ndisToggle, setNdisToggle] = useState(false);
     const [agedCareToggle, setAgedCareToggle] = useState(false);
     const [resourcesToggle, setResourcesToggle] = useState(false);
@@ -25,28 +24,30 @@ const NavbarItems = () => {
 
     const openAboutUsPopup = () => {
         setAboutUsToggle(!aboutusToggle);
-        setServiceToggle(false);
-      setResourcesToggle(false);
-    }
-
-    const openServicesPopup = () => {
-        setServiceToggle(!serviceToggle);
-        setAboutUsToggle(false);
         setResourcesToggle(false);
+        setNdisToggle(false);
+        setAgedCareToggle(false);
     }
 
     const toggleNdisMenu = () => {
       setNdisToggle(!ndisToggle);
+      setAgedCareToggle(false);
+      setAboutUsToggle(false);
+      setResourcesToggle(false);
     }
 
     const toggleAgedCareMenu = () => {
       setAgedCareToggle((isOpen) => !isOpen);
+      setNdisToggle(false);
+      setAboutUsToggle(false);
+      setResourcesToggle(false);
     }
 
     const openResourcesPopup = () => {
       setResourcesToggle(!resourcesToggle);
       setAboutUsToggle(false);
-      setServiceToggle(false);
+      setNdisToggle(false);
+      setAgedCareToggle(false);
     }
 
     return (
@@ -78,59 +79,41 @@ const NavbarItems = () => {
                         <li>
                           <button onClick={() => navigate('/our-story')} className="block py-2 pl-3 pr-4 text-[#1F2937] rounded hover:bg-gray-200 md:hover:bg-transparent md:border-0 md:hover:text-blue-500 md:p-0">Our Story</button>
                         </li>
-                        <li>
-                            <button id="dropdownServicesLink" data-dropdown-toggle="dropdownServicesNavbar" onClick={openServicesPopup} className="flex items-center justify-between w-full py-2 pl-3 pr-4 text-[#1F2937] rounded hover:bg-gray-200 md:hover:bg-transparent md:border-0 md:hover:text-blue-500 md:p-0 md:w-auto">Services <svg className="w-2.5 h-2.5 ml-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                        <li className="relative">
+                            <button onClick={toggleNdisMenu} className="flex items-center py-2 pl-3 pr-4 font-semibold text-[#612C69] rounded hover:bg-gray-200 md:hover:bg-transparent md:border-0 md:hover:text-[#612C69] md:p-0">
+                              NDIS
+                              <svg className={`w-2.5 h-2.5 ml-2 transition-transform ${ndisToggle ? 'rotate-180' : ''}`} aria-hidden="true" fill="none" viewBox="0 0 10 6">
                                 <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 1 4 4 4-4" />
-                            </svg>
+                              </svg>
                             </button>
-                            {serviceToggle && (
-                                <div id="dropdownServicesNavbar" className="z-50 font-normal bg-[#F8FAFC] divide-y divide-gray-200 rounded-lg shadow absolute mt-1 w-55">
-                                  <ul className="py-2 text-sm text-[#1F2937]" aria-labelledby="dropdownLargeButton">
-                                        <li>
-                                        <button onClick={toggleNdisMenu} className="flex w-full items-center justify-between px-4 py-2 text-left font-semibold text-[#612C69] hover:bg-[#F3E7F2]">
-                                          NDIS
-                                          <svg className={`h-3 w-3 transition-transform ${ndisToggle ? 'rotate-180' : ''}`} aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-                                            <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 1 4 4 4-4" />
-                                          </svg>
-                                        </button>
-                                        {ndisToggle && (
-                                          <ul className="border-t border-gray-200 pl-3">
-                                            <li>
-                                              <button onClick={() => navigate('/serviceOne')} className="block w-full px-4 py-2 text-left text-[#1F2937] hover:bg-gray-100">Supported Independent Living</button>
-                                            </li>
-                                            <li>
-                                              <button onClick={() => navigate('/communitySupport')} className="block w-full px-4 py-2 text-left text-[#1F2937] hover:bg-gray-100">Community Support</button>
-                                            </li>
-                                            <li>
-                                              <button onClick={() => navigate('/communityNursing')} className="block w-full px-4 py-2 text-left text-[#1F2937] hover:bg-gray-100">Community Nursing</button>
-                                            </li>
-                                            <li>
-                                              <button onClick={() => navigate('/groupBasedActivities')} className="block w-full px-4 py-2 text-left text-[#1F2937] hover:bg-gray-100">Group Based Activities</button>
-                                            </li>
-                                          </ul>
-                                        )}
-                                        </li>
-                                        <li>
-                                        <div className="flex items-center justify-between px-4 py-2 font-semibold uppercase text-[#1D5A84] hover:bg-[#E8F3FA]">
-                                          <Link to="/aged-care">Aged Care</Link>
-                                          <button type="button" onClick={toggleAgedCareMenu} aria-label="Expand Aged Care categories">
-                                            <svg className={`h-3 w-3 transition-transform ${agedCareToggle ? 'rotate-180' : ''}`} aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-                                              <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 1 4 4 4-4" />
-                                            </svg>
-                                          </button>
-                                        </div>
-                                        {agedCareToggle && (
-                                          <ul className="border-t border-gray-200 pl-3">
-                                            {agedCareCategories.map(([label, slug]) => (
-                                              <li key={slug}>
-                                                <button onClick={() => navigate(`/aged-care/${slug}`)} className="block w-full px-4 py-2 text-left text-[#1F2937] hover:bg-gray-100">{label}</button>
-                                              </li>
-                                            ))}
-                                          </ul>
-                                        )}
-                                        </li>
-                                    </ul>
-                                </div>
+                            {ndisToggle && (
+                              <div className="z-50 font-normal bg-[#F8FAFC] divide-y divide-gray-200 rounded-lg shadow absolute mt-1 w-60">
+                                <ul className="py-2 text-sm text-[#1F2937]">
+                                  <li><Link to="/serviceOne" className="block px-4 py-2 hover:bg-gray-100">Supported Independent Living</Link></li>
+                                  <li><Link to="/communitySupport" className="block px-4 py-2 hover:bg-gray-100">Community Support</Link></li>
+                                  <li><Link to="/communityNursing" className="block px-4 py-2 hover:bg-gray-100">Community Nursing</Link></li>
+                                  <li><Link to="/groupBasedActivities" className="block px-4 py-2 hover:bg-gray-100">Group Based Activities</Link></li>
+                                </ul>
+                              </div>
+                            )}
+                        </li>
+                        <li className="relative">
+                            <div className="flex items-center">
+                              <Link to="/aged-care" className="py-2 pl-3 font-semibold uppercase text-[#1D5A84] rounded hover:bg-gray-200 md:hover:bg-transparent md:hover:text-[#1D5A84] md:p-0">Aged Care</Link>
+                              <button onClick={toggleAgedCareMenu} className="py-2 pr-3 pl-2 text-[#1D5A84] rounded hover:bg-gray-200 md:hover:bg-transparent md:p-0" aria-label="Expand Aged Care menu">
+                                <svg className={`w-2.5 h-2.5 transition-transform ${agedCareToggle ? 'rotate-180' : ''}`} aria-hidden="true" fill="none" viewBox="0 0 10 6">
+                                  <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 1 4 4 4-4" />
+                                </svg>
+                              </button>
+                            </div>
+                            {agedCareToggle && (
+                              <div className="z-50 font-normal bg-[#F8FAFC] divide-y divide-gray-200 rounded-lg shadow absolute mt-1 w-72">
+                                <ul className="py-2 text-sm text-[#1F2937]">
+                                  {agedCareCategories.map(([label, slug]) => (
+                                    <li key={slug}><Link to={`/aged-care/${slug}`} className="block px-4 py-2 hover:bg-gray-100">{label}</Link></li>
+                                  ))}
+                                </ul>
+                              </div>
                             )}
                         </li>
                         
@@ -167,8 +150,8 @@ const NavbarItems = () => {
                             {resourcesToggle && (
                               <div className="z-50 font-normal bg-[#F8FAFC] divide-y divide-gray-200 rounded-lg shadow absolute mt-1 w-36">
                                 <ul className="py-2 text-sm text-[#1F2937]">
-                                        <li><Link to="/serviceOne" className="block px-4 py-2 font-semibold text-[#612C69] hover:bg-[#F3E7F2]">NDIS</Link></li>
-                                        <li><Link to="/aged-care" className="block px-4 py-2 font-semibold uppercase text-[#1D5A84] hover:bg-[#E8F3FA]">Aged Care</Link></li>
+                                        <li><Link to="/resources/ndis" className="block px-4 py-2 font-semibold text-[#612C69] hover:bg-[#F3E7F2]">NDIS</Link></li>
+                                        <li><Link to="/resources/aged-care" className="block px-4 py-2 font-semibold uppercase text-[#1D5A84] hover:bg-[#E8F3FA]">Aged Care</Link></li>
                                 </ul>
                               </div>
                             )}
@@ -188,78 +171,32 @@ const NavbarItems = () => {
               Our Story
             </Link>
             <div className="relative">
-              <button
-                onClick={openServicesPopup}
-                className="block px-2 text-[#1F2937] hover:text-gray-600 focus:text-gray-600 focus:outline-none"
-              >
-                Services{' '}
-                <svg
-                  className="w-4 h-4 inline-block ml-1"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M19 9l-7 7-7-7"
-                  />
-                </svg>
+              <button onClick={toggleNdisMenu} className="block px-2 font-semibold text-[#612C69] hover:text-[#4A214F]">
+                NDIS
               </button>
-              {serviceToggle && (
-                <div className="absolute mt-1 py-2 bg-white rounded-lg shadow-lg w-60">
-                  <button
-                    onClick={toggleNdisMenu}
-                    className="flex w-full items-center justify-between px-4 py-2 text-left font-semibold text-[#612C69] hover:bg-[#F3E7F2]"
-                  >
-                    NDIS
-                    <svg className={`h-3 w-3 transition-transform ${ndisToggle ? 'rotate-180' : ''}`} aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-                      <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 1 4 4 4-4" />
-                    </svg>
-                  </button>
-                  {ndisToggle && (
-                    <div className="border-t border-gray-200 pl-2">
-                  <Link
-                    to="/serviceOne"
-                    className="block px-4 py-2 font-semibold text-[#173F67] hover:bg-[#eef1f5]"
-                  >
-                    Supported Independent Living
-                  </Link>
-                  <Link
-                    to="/communitySupport"
-                    className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
-                  >
-                    Community Support
-                  </Link>
-                  <Link
-                    to="/communityNursing"
-                    className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
-                  >
-                    Community Nursing
-                  </Link>
-                  <Link
-                    to="/groupBasedActivities"
-                    className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
-                  >
-                    Group Based Activities
-                  </Link>
-                    </div>
-                  )}
-                  <div className="flex items-center justify-between px-4 py-2 uppercase text-gray-800 hover:bg-gray-200">
-                    <Link to="/aged-care">Aged Care</Link>
-                    <button type="button" onClick={toggleAgedCareMenu} aria-label="Expand Aged Care categories">
-                      <svg className={`h-3 w-3 transition-transform ${agedCareToggle ? 'rotate-180' : ''}`} aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-                        <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 1 4 4 4-4" />
-                      </svg>
-                    </button>
-                  </div>
-                  {agedCareToggle && (
-                    <div className="border-t border-gray-200 pl-2">
-                      {agedCareCategories.map(([label, slug]) => (
-                        <Link key={slug} to={`/aged-care/${slug}`} className="block px-4 py-2 text-gray-800 hover:bg-gray-200">{label}</Link>
-                      ))}
-                    </div>
-                  )}
+              {ndisToggle && (
+                <div className="py-2 bg-white rounded-lg shadow-lg w-60">
+                  <Link to="/serviceOne" className="block px-4 py-2 text-gray-800 hover:bg-gray-200">Supported Independent Living</Link>
+                  <Link to="/communitySupport" className="block px-4 py-2 text-gray-800 hover:bg-gray-200">Community Support</Link>
+                  <Link to="/communityNursing" className="block px-4 py-2 text-gray-800 hover:bg-gray-200">Community Nursing</Link>
+                  <Link to="/groupBasedActivities" className="block px-4 py-2 text-gray-800 hover:bg-gray-200">Group Based Activities</Link>
+                </div>
+              )}
+            </div>
+            <div className="relative">
+              <div className="flex items-center px-2">
+                <Link to="/aged-care" className="font-semibold uppercase text-[#1D5A84] hover:text-[#17496A]">Aged Care</Link>
+                <button onClick={toggleAgedCareMenu} className="ml-2 text-[#1D5A84] hover:text-[#17496A]" aria-label="Expand Aged Care menu">
+                  <svg className={`w-4 h-4 transition-transform ${agedCareToggle ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
+              </div>
+              {agedCareToggle && (
+                <div className="py-2 bg-white rounded-lg shadow-lg w-72">
+                  {agedCareCategories.map(([label, slug]) => (
+                    <Link key={slug} to={`/aged-care/${slug}`} className="block px-4 py-2 text-gray-800 hover:bg-gray-200">{label}</Link>
+                  ))}
                 </div>
               )}
             </div>
@@ -274,8 +211,8 @@ const NavbarItems = () => {
               </div>
               {resourcesToggle && (
                 <div className="py-2 bg-white rounded-lg shadow-lg w-40">
-                  <Link to="/serviceOne" className="block px-4 py-2 font-semibold text-[#612C69] hover:bg-[#F3E7F2]">NDIS</Link>
-                  <Link to="/aged-care" className="block px-4 py-2 font-semibold uppercase text-[#1D5A84] hover:bg-[#E8F3FA]">Aged Care</Link>
+                  <Link to="/resources/ndis" className="block px-4 py-2 font-semibold text-[#612C69] hover:bg-[#F3E7F2]">NDIS</Link>
+                  <Link to="/resources/aged-care" className="block px-4 py-2 font-semibold uppercase text-[#1D5A84] hover:bg-[#E8F3FA]">Aged Care</Link>
                 </div>
               )}
             </div>
