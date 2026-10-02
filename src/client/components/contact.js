@@ -127,6 +127,18 @@ const Contact = () => {
                     </form>
                 </div>
             </section>
+            <section className="bg-sky-50 px-8 py-12 md:px-16">
+                <div className="mx-auto max-w-6xl">
+                    <h2 className="text-3xl font-bold text-slate-600">Locations</h2>
+                    <ul className="mt-6 grid gap-3 text-lg font-semibold text-gray-700 sm:grid-cols-2 md:grid-cols-3">
+                        <li>Brisbane</li>
+                        <li>Ipswich</li>
+                        <li>Logan</li>
+                        <li>Gold Coast</li>
+                        <li>Sunshine Coast</li>
+                    </ul>
+                </div>
+            </section>
             <Map />
             {isDialogOpen && <DialogForm isOpen={isDialogOpen} onClose={closeDialog} />}
             <Footer />
